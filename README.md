@@ -7,7 +7,7 @@ A Minecraft Server plugin that provides a JRAW Reddit API interface.
 1. [Create a reddit OAuth2 app.](https://mattbdean.gitbooks.io/jraw/quickstart.html#create-a-reddit-oauth2-app)
 
 2. Fill out the fields in the ``config.yml`` to allow the plugin access to your bot.
-    - The details for the UserAgent must be provided in the ``userAgent`` section. See [this page](https://mattbdean.gitbooks.io/jraw/quickstart.html#choose-a-user-agent) for more information on choosing good UserAgent details. Since RedditAPI bots are supposed to be server-specific, the following settings could be used:
+    - The details for the UserAgent must be provided in the ``userAgent`` section. See [this section](https://mattbdean.gitbooks.io/jraw/quickstart.html#choose-a-user-agent) in the JRAW Wiki for more information on choosing good UserAgent details. Since RedditAPI bots are supposed to be server-specific, the following settings could be used:
     ```yaml
     platform: 'bot'
     uid: 'com.<server name>.serverbot'
@@ -15,8 +15,13 @@ A Minecraft Server plugin that provides a JRAW Reddit API interface.
     username: '<your personal reddit username>'
     ```
     
-
-3. Run the plugin, or call **/redditcraft connect**, for the plugin to attempt to obtain a working [RedditClient](https://javadoc.jitpack.io/com/github/mattbdean/JRAW/v1.1.0/javadoc/net/dean/jraw/RedditClient.html). 
+    - The second section of details are to allow JRAW to authenticate as the OAuth2 app. See [this section](https://mattbdean.gitbooks.io/jraw/quickstart.html#create-a-reddit-oauth2-app) in the JRAW Wiki for more information on these details. Essentially, ``username`` and ``password`` are the username and password to the Reddit account which has the registered OAuth2 app (it's recommended to make a new account with it on), and the ``clientID`` and ``clientSecret`` may be found from your OAuth2 app page, shown on the following screenshot from the JRAW Wiki:
+    
+    ![OAuth2details](https://i.imgur.com/ILMeklr.png).
+    
+    - Once you have filled in the above details, change ``connect`` to ``true`` to connect on load/reload of RedditAPI, as well as from the **/redditapi connect** command.
+    
+3. Run the plugin, or call **/redditapi connect**, for the plugin to attempt to obtain a working [RedditClient](https://javadoc.jitpack.io/com/github/mattbdean/JRAW/v1.1.0/javadoc/net/dean/jraw/RedditClient.html). 
 Once obtained, all regsitered ConnectHandlers will be called, with the working RedditClient supplied.
 
 To obtain a RedditClient instance in your plugin, you will need to do steps 1 and 2 as above. 
@@ -111,6 +116,6 @@ The config is very minimal, where one provides the following information regardi
 
 ## Interface
 
-After creating a Reddit bot and entering its details into the config, one may either run/reload the plugin or use the **/redditcraft connect** command to attempt to obtain the JRAW RedditClient.
+After creating a Reddit bot and entering its details into the config, one may either run/reload the plugin or use the **/redditapi connect** command to attempt to obtain the JRAW RedditClient.
 
 When successfully obtained, all ConnectHandlers registered to the plugin are called, with the RedditClient instance provided.
