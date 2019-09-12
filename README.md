@@ -118,6 +118,6 @@ It has a single child: **connect**, with an alias of **con**. This command will 
 
 The ``redditapi`` permission node gives a player access to the help message from **/redditapi**, and the **/redditapi connect** command.
 
-# Disclaimer
+## Disclaimer
 
 I take no liability for any of the actions performed, or the security of, any of the authenticated reddit accounts or bots that the plugin may interface with.
