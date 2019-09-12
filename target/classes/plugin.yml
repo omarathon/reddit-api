@@ -1,0 +1,11 @@
+name: RedditAPI
+version: 1.0-SNAPSHOT
+main: dev.omarathon.redditapi.RedditAPI
+api-version: 1.13
+authors: [omarathon]
+commands:
+  redditapi:
+    description: Central command for the RedditAPI plugin.
+    usage: /redditapi
+    permission: redditapi
+    aliases: [ra]
