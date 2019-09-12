@@ -1,6 +1,8 @@
 # RedditAPI
 
-A Minecraft Server plugin that provides a JRAW Reddit API interface.
+A Minecraft Server plugin that provides a [JRAW](https://github.com/mattbdean/JRAW) reddit API interface.
+
+Essentially, it allows a plugin to interact with the reddit api, through the **J**ava **R**eddit **A**PI **W**rapper.
 
 ## Usage
 
