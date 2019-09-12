@@ -17,14 +17,14 @@ Essentially, it allows a plugin to obtain data from reddit via a registered bot,
     username: '<your personal reddit username>'
     ```
     
-    - The second section of details are to allow JRAW to authenticate as the OAuth2 app. See [this section](https://mattbdean.gitbooks.io/jraw/quickstart.html#create-a-reddit-oauth2-app) in the JRAW Wiki for more information on these details. Essentially, ``username`` and ``password`` are the username and password to the Reddit account which has the registered OAuth2 app (it's recommended to make a new account with it on), and the ``clientID`` and ``clientSecret`` may be found from your OAuth2 app page, shown on the following screenshot from the JRAW Wiki:
+    - The second section of details are to allow JRAW to authenticate as the OAuth2 app. See [this section](https://mattbdean.gitbooks.io/jraw/quickstart.html#create-a-reddit-oauth2-app) in the JRAW Wiki for more information on these details. Essentially, ``username`` and ``password`` are the username and password to the reddit account which has the registered OAuth2 app (it's recommended to make a new account with it on), and the ``clientID`` and ``clientSecret`` may be found from your OAuth2 app page, shown on the following screenshot from the JRAW Wiki:
     
     ![OAuth2details](https://i.imgur.com/ILMeklr.png).
     
     - Once you have filled in the above details, change ``connect`` to ``true`` to connect on load/reload of RedditAPI, as well as from the **/redditapi connect** command.
     
 3. Run the plugin, or call **/redditapi connect**, for the plugin to attempt to obtain a working [RedditClient](https://javadoc.jitpack.io/com/github/mattbdean/JRAW/v1.1.0/javadoc/net/dean/jraw/RedditClient.html). 
-Once obtained, all regsitered ConnectHandlers will be called, with the working RedditClient supplied.
+Once obtained, all regsitered [ConnectHandler](src/main/java/dev/omarathon/redditapi/connect/ConnectHandler.java)s will be called, with the working RedditClient supplied.
 
 To obtain a RedditClient instance in your plugin, you will need to do steps 1 and 2 as above. 
 Then, you will need to construct a ConnectHandler, which will handle the output valid RedditClient from RedditAPI.
@@ -69,13 +69,13 @@ public final class ExamplePlugin extends JavaPlugin {
 
 In order to use the RedditClient "safely", all I/O that may trigger a use of the RedditClient must be locked until it's set.
 
-Since usually I/O is enabled in the ``onEnable`` method, one may instead enable it within a registered ``ConnectHandler``.
+Since usually I/O is enabled in the ``onEnable`` method, one may instead enable it within a registered ConnectHandler.
 
 However, if we put the entire old ``onEnable`` in a ConnectHandler, then every time RedditAPI obtains a new RedditClient the entire plugin will essentially be reloaded.
 
-To resolve this, supplied is an ``InitialisingConnectHandler``. One must specify the ``onFirstConnect`` and ``onNonFirstConnect`` handler methods, which are both passed the ``RedditClient``.
+To resolve this, supplied is an [InitialisingConnectHandler](src/main/java/dev/omarathon/redditapi/connect/InitialisingConnectHandler.java). One must specify the ``onFirstConnect`` and ``onNonFirstConnect`` handler methods, which are both passed the RedditClient.
 
-In the ``onFirstConnect`` handler one may setup their entire plugin as before, however in the ``onNonFirstConnect`` it may not be neccessary to re-setup the plugin, and rather to just update the ``RedditClient`` instance, since the plugin was set-up already in the `onFirstConnect`` handler.
+In the ``onFirstConnect`` handler one may setup their entire plugin as before, however in the ``onNonFirstConnect`` it may not be neccessary to re-setup the plugin, and rather to just update the RedditClient instance, since the plugin was set-up already in the `onFirstConnect`` handler.
 
 Below is an example of a plugin that safely uses a ``RedditClient``:
 
@@ -108,7 +108,7 @@ public final class ExamplePlugin extends JavaPlugin {
 }
 ```
 
-In both the ``firstConnect`` and ``nonFirstConnect`` handlers, we update the ``RedditClient`` instance, however we only do the original plugin ``onEnable`` in the ``firstConnect`` handler.
+In both the ``firstConnect`` and ``nonFirstConnect`` handlers, we update the RedditClient instance, however we only do the original plugin ``onEnable`` in the ``firstConnect`` handler.
 
 ## Commands / Permissions
 
