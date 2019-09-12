@@ -40,7 +40,7 @@ public final class ExamplePlugin extends JavaPlugin {
     }
 
     // example usage of RedditClient. returns null if the RedditClient is null,
-    // and so cannot determine the result.
+    // because cannot determine the result.
     private Boolean userExists(String username) {
         if (redditClient == null) {
             return null;
