@@ -110,14 +110,14 @@ public final class ExamplePlugin extends JavaPlugin {
 
 In both the ``firstConnect`` and ``nonFirstConnect`` handlers, we update the ``RedditClient`` instance, however we only do the original plugin ``onEnable`` in the ``firstConnect`` handler.
 
-## Config
+## Commands / Permissions
 
-The config is very minimal, where one provides the following information regarding their bot's connection to Reddit:
+The central command is **/redditapi**, with an alias of **/ra**. It requires the ``redditapi`` permission node (but it's advised that this node is reserved for admins). Called without children, it shows help.
 
-- 
+It has a single child: **connect**, with an alias of **con**. This command will make RedditAPI reload the config and attempt to obtain a new RedditClient from the details provided within. It's essentially equivalent to reloading the plugin.
 
-## Interface
+The ``redditapi`` permission node gives a player access to the help message from **/redditapi**, and the **/redditapi connect** command.
 
-After creating a Reddit bot and entering its details into the config, one may either run/reload the plugin or use the **/redditapi connect** command to attempt to obtain the JRAW RedditClient.
+# Disclaimer
 
-When successfully obtained, all ConnectHandlers registered to the plugin are called, with the RedditClient instance provided.
+I, omarathon, take no liabability for any of the actions performed by the reddit bots the plugin may control.
