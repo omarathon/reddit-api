@@ -12,6 +12,7 @@ The main class for the plugin is [RedditAPI](src/main/java/dev/omarathon/reddita
 
 2. Fill out the fields in the ``config.yml`` to allow the plugin access to your bot.
     - The details for the UserAgent must be provided in the ``userAgent`` section. See [this section](https://mattbdean.gitbooks.io/jraw/quickstart.html#choose-a-user-agent) in the JRAW Wiki for more information on choosing good UserAgent details. Since RedditAPI bots are supposed to be server-specific, the following settings could be used:
+    
     ```yaml
     platform: 'bot'
     uid: 'com.<server name>.serverbot'
