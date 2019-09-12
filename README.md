@@ -120,4 +120,4 @@ The ``redditapi`` permission node gives a player access to the help message from
 
 # Disclaimer
 
-I, omarathon, take no liabability for any of the actions performed by the reddit bots the plugin may control.
+I take no liability for any of the actions performed, or the security of, any of the authenticated reddit accounts or bots that the plugin may interface with.
