@@ -21,7 +21,7 @@ Essentially, it allows a plugin to obtain data from reddit via a registered bot,
     
     ![OAuth2details](https://i.imgur.com/ILMeklr.png).
     
-    - Once you have filled in the above details, change ``connect`` to ``true`` to connect on load/reload of RedditAPI, as well as from the **/redditapi connect** command.
+    - Once you have filled in the above details, change ``connect`` to ``true`` to connect on load/reload of [RedditAPI](src/main/java/dev/omarathon/redditapi/RedditAPI.java), as well as from the **/redditapi connect** command.
     
 3. Run the plugin, or call **/redditapi connect**, for the plugin to attempt to obtain a working [RedditClient](https://javadoc.jitpack.io/com/github/mattbdean/JRAW/v1.1.0/javadoc/net/dean/jraw/RedditClient.html). 
 Once obtained, all regsitered [ConnectHandler](src/main/java/dev/omarathon/redditapi/connect/ConnectHandler.java)s will be called, with the working RedditClient supplied.
