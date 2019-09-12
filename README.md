@@ -4,6 +4,8 @@ A very light Minecraft Server plugin that provides a reddit API interface.
 
 Essentially, it allows a plugin to obtain data from reddit via a registered bot, through the [**J**ava **R**eddit **A**PI **W**rapper](https://github.com/mattbdean/JRAW).
 
+The main class for the plugin is [RedditAPI](src/main/java/dev/omarathon/redditapi/RedditAPI.java).
+
 ## Usage
 
 1. Create a reddit OAuth2 app [here](https://www.reddit.com/prefs/apps). Note the app type is a **script**, and is intended to be specific to your Minecraft server.
@@ -21,7 +23,7 @@ Essentially, it allows a plugin to obtain data from reddit via a registered bot,
     
     ![OAuth2details](https://i.imgur.com/ILMeklr.png).
     
-    - Once you have filled in the above details, change ``connect`` to ``true`` to connect on load/reload of [RedditAPI](src/main/java/dev/omarathon/redditapi/RedditAPI.java), as well as from the **/redditapi connect** command.
+    - Once you have filled in the above details, change ``connect`` to ``true`` to connect on load/reload of RedditAPI, as well as from the **/redditapi connect** command.
     
 3. Run the plugin, or call **/redditapi connect**, for the plugin to attempt to obtain a working [RedditClient](https://javadoc.jitpack.io/com/github/mattbdean/JRAW/v1.1.0/javadoc/net/dean/jraw/RedditClient.html). 
 Once obtained, all regsitered [ConnectHandler](src/main/java/dev/omarathon/redditapi/connect/ConnectHandler.java)s will be called, with the working RedditClient supplied.
