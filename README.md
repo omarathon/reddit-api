@@ -4,7 +4,7 @@ A Minecraft Server plugin that provides a JRAW Reddit API interface.
 
 ## Usage
 
-1. [Create a reddit OAuth2 app.](https://mattbdean.gitbooks.io/jraw/quickstart.html#create-a-reddit-oauth2-app)
+1. Create a reddit OAuth2 app [here](https://www.reddit.com/prefs/apps). Note the app type is a **script**, and is intended to be specific to your Minecraft server.
 
 2. Fill out the fields in the ``config.yml`` to allow the plugin access to your bot.
     - The details for the UserAgent must be provided in the ``userAgent`` section. See [this section](https://mattbdean.gitbooks.io/jraw/quickstart.html#choose-a-user-agent) in the JRAW Wiki for more information on choosing good UserAgent details. Since RedditAPI bots are supposed to be server-specific, the following settings could be used:
