@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/omarathon/reddit-api.svg)](https://jitpack.io/#omarathon/reddit-api)
+[![Latest Release](https://img.shields.io/github/release/omarathon/reddit-api.svg)](https://github.com/omarathon/reddit-api/releases/latest) [![](https://jitpack.io/v/omarathon/reddit-api.svg)](https://jitpack.io/#omarathon/reddit-api)
 
 # RedditAPI
 
