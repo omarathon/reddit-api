@@ -2,7 +2,7 @@
 
 A Minecraft Server plugin that provides a [JRAW](https://github.com/mattbdean/JRAW) reddit API interface.
 
-Essentially, it allows a plugin to interact with the reddit api, through the **J**ava **R**eddit **A**PI **W**rapper.
+Essentially, it allows a plugin to obtain data from reddit via its api and a registered bot, through the **J**ava **R**eddit **A**PI **W**rapper.
 
 ## Usage
 
