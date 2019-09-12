@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/omarathon/reddit-api.svg)](https://jitpack.io/#omarathon/reddit-api)
+
 # RedditAPI
 
 A very light Minecraft Server plugin that provides a reddit API interface.
@@ -7,6 +9,8 @@ Essentially, it allows a plugin to obtain data from reddit via a registered bot,
 The main class for the plugin is [RedditAPI](src/main/java/dev/omarathon/redditapi/RedditAPI.java).
 
 ## Usage
+
+1. Install the plugin, and add it as a dependency in your ``pom.xml`` from [JitPack](https://jitpack.io/#omarathon/reddit-api).
 
 1. Create a reddit OAuth2 app [here](https://www.reddit.com/prefs/apps). Note the app type is a **script**, and is intended to be specific to your Minecraft server.
 
