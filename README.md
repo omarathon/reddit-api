@@ -97,7 +97,7 @@ public final class ExamplePlugin extends JavaPlugin {
         return instance;
     }
 
-    public void setRedditClient(RedditClient redditClient) {
+    public static void setRedditClient(RedditClient redditClient) {
         this.redditClient = redditClient;
     }
 
