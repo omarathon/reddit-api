@@ -82,13 +82,26 @@ However, if we put the entire old ``onEnable`` in a ConnectHandler, then every t
 
 To resolve this, supplied is an [InitialisingConnectHandler](src/main/java/dev/omarathon/redditapi/connect/InitialisingConnectHandler.java). One must specify the ``onFirstConnect`` and ``onNonFirstConnect`` handler methods, which are both passed the RedditClient.
 
-In the ``onFirstConnect`` handler one may setup their entire plugin as before, however in the ``onNonFirstConnect`` it may not be neccessary to re-setup the plugin, and rather to just update the RedditClient instance, since the plugin was set-up already in the `onFirstConnect`` handler.
+In the ``onFirstConnect`` handler one may setup their entire plugin as before, however in the ``onNonFirstConnect`` it may not be neccessary to re-setup the plugin, and rather to just update the RedditClient instance, since the plugin was set-up already in the ``onFirstConnect`` handler.
 
 Below is an example of a plugin that safely uses a ``RedditClient``:
 
 ```java
 public final class ExamplePlugin extends JavaPlugin {
-    private static RedditClient redditClient;
+    private static ExamplePlugin instance;
+    private RedditClient redditClient;
+
+    public ExamplePlugin() {
+        instance = this;
+    }
+
+    public static ExamplePlugin getInstance() {
+        return instance;
+    }
+
+    public void setRedditClient(RedditClient redditClient) {
+        this.redditClient = redditClient;
+    }
 
     @Override
     public void onEnable() {
@@ -102,14 +115,14 @@ public final class ExamplePlugin extends JavaPlugin {
 
             @Override
             public void onNonFirstConnect(RedditClient redditClient) {
-                ExamplePlugin.redditClient = redditClient;
+                ExamplePlugin.getInstance().setRedditClient(redditClient);
             }
         });
     }
 
     // example use of redditClient, where the I/O to call this method
     // was only set-ip within the ConnectHandler
-    private static boolean userExists(String username) {
+    private boolean userExists(String username) {
         return redditClient.user(username).query().getStatus() == AccountStatus.EXISTS;
     }
 }
