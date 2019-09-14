@@ -45,18 +45,18 @@ If one requires a RedditClient such that the requests may be cancelled if a conn
 
 It will be null if no connection has been established, otherwise it will be a valid connection.
 
-The ConnectHandler sets the static field.
+The ConnectHandler sets field, which may be static if you only require a central connection.
 
 When using this RedditClient, one must firstly check whether it's null or not.
 
 ```java
 public final class ExamplePlugin extends JavaPlugin {
-    private static RedditClient redditClient = null;
+    private RedditClient redditClient;
 
     @Override
     public void onEnable() {
         RedditAPI.registerConnectHandler((RedditClient redditClient) -> {
-            ExamplePlugin.redditClient = redditClient;
+            this.redditClient = redditClient;
         });
         // rest of startup logic...
     }
