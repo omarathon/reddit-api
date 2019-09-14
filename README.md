@@ -50,15 +50,13 @@ The ConnectHandler sets field, which may be static if you only require a central
 When using this RedditClient, one must firstly check whether it's null or not.
 
 ```java
-public final class ExamplePlugin extends JavaPlugin {
-    private RedditClient redditClient;
-
-    @Override
-    public void onEnable() {
+public final class RedditClass {
+    private static RedditClient redditClient = null;
+    
+    static {
         RedditAPI.registerConnectHandler((RedditClient redditClient) -> {
-            this.redditClient = redditClient;
+            RedditClass.redditClient = redditClient;
         });
-        // rest of startup logic...
     }
 
     // example usage of RedditClient. returns null if the RedditClient is null,
