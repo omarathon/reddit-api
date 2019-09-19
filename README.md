@@ -12,9 +12,20 @@ The main class for the plugin is [RedditAPI](src/main/java/dev/omarathon/reddita
 
 1. Install the plugin, and add it as a dependency in your ``pom.xml`` from [JitPack](https://jitpack.io/#omarathon/reddit-api).
 
-1. Create a reddit OAuth2 app [here](https://www.reddit.com/prefs/apps). Note the app type is a **script**, and is intended to be specific to your Minecraft server.
+2. Add JRAW as a dependency to your ``pom.xml`` from [bintray](https://bintray.com/thatjavanerd/maven/JRAW):
 
-2. Fill out the fields in the ``config.yml`` to allow the plugin access to your bot.
+```java
+<dependency>
+  <groupId>net.dean.jraw</groupId>
+  <artifactId>JRAW</artifactId>
+  <version>1.1.0</version>
+  <type>pom</type>
+</dependency>
+```
+
+3. Create a reddit OAuth2 app [here](https://www.reddit.com/prefs/apps). Note the app type is a **script**, and is intended to be specific to your Minecraft server.
+
+4. Fill out the fields in the ``config.yml`` to allow the plugin access to your bot.
     - The details for the UserAgent must be provided in the ``userAgent`` section. See [this section](https://mattbdean.gitbooks.io/jraw/quickstart.html#choose-a-user-agent) in the JRAW Wiki for more information on choosing good UserAgent details. Since RedditAPI bots are supposed to be server-specific, the following settings could be used:
     
     ```yaml
@@ -30,7 +41,7 @@ The main class for the plugin is [RedditAPI](src/main/java/dev/omarathon/reddita
     
     - Once you have filled in the above details, change ``connect`` to ``true`` to connect on load/reload of RedditAPI, as well as from the **/redditapi connect** command.
     
-3. Run the plugin, or call **/redditapi connect**, for the plugin to attempt to obtain a working [RedditClient](https://javadoc.jitpack.io/com/github/mattbdean/JRAW/v1.1.0/javadoc/net/dean/jraw/RedditClient.html). 
+5. Run the plugin, or call **/redditapi connect**, for the plugin to attempt to obtain a working [RedditClient](https://javadoc.jitpack.io/com/github/mattbdean/JRAW/v1.1.0/javadoc/net/dean/jraw/RedditClient.html). 
 Once obtained, all regsitered [ConnectHandler](src/main/java/dev/omarathon/redditapi/connect/ConnectHandler.java)s will be called, with the working RedditClient supplied.
 
 To obtain a RedditClient instance in your plugin, you will need to do the initialisation steps as above. 
