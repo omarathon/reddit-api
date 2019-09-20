@@ -52,9 +52,7 @@ To obtain a RedditClient instance in your plugin, you will need to do the initia
 Then, you will need to construct a ConnectHandler, which will handle the output valid RedditClient from RedditAPI.
 Register this handler, from when you would like to begin waiting for a RedditClient, and you'll receieve a RedditClient as soon as RedditAPI obtains a valid one!
 
-#### NOTE
-
-You **must** add ``RedditAPI`` as a dependency in your ``plugin.yml``, like so:
+**NOTE**: You **must** add ``RedditAPI`` as a dependency in your ``plugin.yml``, like so:
 
 ```yml
 depend:
