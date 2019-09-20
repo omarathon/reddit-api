@@ -46,11 +46,13 @@ The main class for the plugin is [RedditAPI](src/main/java/dev/omarathon/reddita
 5. Run the plugin, or call **/redditapi connect**, for the plugin to attempt to obtain a working [RedditClient](https://javadoc.jitpack.io/com/github/mattbdean/JRAW/v1.1.0/javadoc/net/dean/jraw/RedditClient.html). 
 Once obtained, all regsitered [ConnectHandler](src/main/java/dev/omarathon/redditapi/connect/ConnectHandler.java)s will be called, with the working RedditClient supplied.
 
-### API
+### API Usage
 
 To obtain a RedditClient instance in your plugin, you will need to do the initialisation steps as above. 
 Then, you will need to construct a ConnectHandler, which will handle the output valid RedditClient from RedditAPI.
 Register this handler, from when you would like to begin waiting for a RedditClient, and you'll receieve a RedditClient as soon as RedditAPI obtains a valid one!
+
+#### NOTE
 
 You **must** add ``RedditAPI`` as a dependency in your ``plugin.yml``, like so:
 
