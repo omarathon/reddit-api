@@ -25,6 +25,8 @@ The main class for the plugin is [RedditAPI](src/main/java/dev/omarathon/reddita
 
 3. Create a reddit OAuth2 app [here](https://www.reddit.com/prefs/apps). Note the app type is a **script**, and is intended to be specific to your Minecraft server.
 
+5. Run the plugin to generate the ``config.yml.``.
+
 4. Fill out the fields in the ``config.yml`` to allow the plugin access to your bot.
     - The details for the UserAgent must be provided in the ``userAgent`` section. See [this section](https://mattbdean.gitbooks.io/jraw/quickstart.html#choose-a-user-agent) in the JRAW Wiki for more information on choosing good UserAgent details. Since RedditAPI bots are supposed to be server-specific, the following settings could be used:
     
@@ -44,9 +46,18 @@ The main class for the plugin is [RedditAPI](src/main/java/dev/omarathon/reddita
 5. Run the plugin, or call **/redditapi connect**, for the plugin to attempt to obtain a working [RedditClient](https://javadoc.jitpack.io/com/github/mattbdean/JRAW/v1.1.0/javadoc/net/dean/jraw/RedditClient.html). 
 Once obtained, all regsitered [ConnectHandler](src/main/java/dev/omarathon/redditapi/connect/ConnectHandler.java)s will be called, with the working RedditClient supplied.
 
+### API
+
 To obtain a RedditClient instance in your plugin, you will need to do the initialisation steps as above. 
 Then, you will need to construct a ConnectHandler, which will handle the output valid RedditClient from RedditAPI.
 Register this handler, from when you would like to begin waiting for a RedditClient, and you'll receieve a RedditClient as soon as RedditAPI obtains a valid one!
+
+You **must** add ``RedditAPI`` as a dependency in your ``plugin.yml``, like so:
+
+```yml
+depend:
+  - RedditAPI
+```
 
 ## Example
 
