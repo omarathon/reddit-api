@@ -18,11 +18,11 @@ public final class RedditAPI extends JavaPlugin {
     private static RedditClient redditClient = null;
 
     public RedditAPI() {
-        instance = this;
     }
 
     @Override
     public void onEnable() {
+        if (instance != null) instance = this;
         getConfig().options().copyDefaults(true);
         saveConfig();
 
@@ -62,6 +62,7 @@ public final class RedditAPI extends JavaPlugin {
     }
 
     private void callConnectHandlers() {
+        logger.info("Calling " + connectHandlers.size() + " connectHandlers");
         for (ConnectHandler connectHandler : connectHandlers) {
             connectHandler.onConnect(redditClient);
         }
@@ -88,6 +89,9 @@ public final class RedditAPI extends JavaPlugin {
 
     public static void registerConnectHandler(ConnectHandler connectHandler) {
         connectHandlers.add(connectHandler);
-        if (redditClient != null) connectHandler.onConnect(redditClient);
+        if (redditClient != null) {
+            logger.info("Connected regsitered connectHandler");
+            connectHandler.onConnect(redditClient);
+        }
     }
 }
