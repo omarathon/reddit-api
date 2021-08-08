@@ -22,7 +22,7 @@ public final class RedditAPI extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        if (instance != null) instance = this;
+        if (instance == null) instance = this;
         getConfig().options().copyDefaults(true);
         saveConfig();
 
