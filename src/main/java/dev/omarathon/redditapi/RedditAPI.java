@@ -13,9 +13,9 @@ import java.util.logging.Logger;
 
 public final class RedditAPI extends JavaPlugin {
     private static RedditAPI instance;
-    private static Set<ConnectHandler> connectHandlers = new HashSet<>();
+    private Set<ConnectHandler> connectHandlers = new HashSet<>();
     private static Logger logger;
-    private static RedditClient redditClient = null;
+    private RedditClient redditClient = null;
 
     public RedditAPI() {
     }
@@ -87,7 +87,7 @@ public final class RedditAPI extends JavaPlugin {
         return redditClient.me().getUsername().equals(Config.getAccountUsername());
     }
 
-    public static void registerConnectHandler(ConnectHandler connectHandler) {
+    public void registerConnectHandler(ConnectHandler connectHandler) {
         connectHandlers.add(connectHandler);
         if (redditClient != null) {
             logger.info("Connected regsitered connectHandler");
