@@ -10,18 +10,7 @@ The main class for the plugin is [RedditAPI](src/main/java/dev/omarathon/reddita
 
 ## Usage
 
-1. Install the plugin, and add it as a dependency in your ``pom.xml`` from [JitPack](https://jitpack.io/#omarathon/reddit-api).
-
-2. Add JRAW as a dependency to your ``pom.xml`` from [bintray](https://bintray.com/thatjavanerd/maven/JRAW):
-
-```java
-<dependency>
-  <groupId>net.dean.jraw</groupId>
-  <artifactId>JRAW</artifactId>
-  <version>1.1.0</version>
-  <type>pom</type>
-</dependency>
-```
+1. Import the plugin JAR to your project.
 
 3. Create a reddit OAuth2 app [here](https://www.reddit.com/prefs/apps). Note the app type is a **script**, and is intended to be specific to your Minecraft server.
 
