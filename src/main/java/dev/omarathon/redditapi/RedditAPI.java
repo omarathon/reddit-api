@@ -62,7 +62,6 @@ public final class RedditAPI extends JavaPlugin {
     }
 
     private void callConnectHandlers() {
-        logger.info("Calling " + connectHandlers.size() + " connectHandlers");
         for (ConnectHandler connectHandler : connectHandlers) {
             connectHandler.onConnect(redditClient);
         }
@@ -90,7 +89,6 @@ public final class RedditAPI extends JavaPlugin {
     public void registerConnectHandler(ConnectHandler connectHandler) {
         connectHandlers.add(connectHandler);
         if (redditClient != null) {
-            logger.info("Connected regsitered connectHandler");
             connectHandler.onConnect(redditClient);
         }
     }
